@@ -18,30 +18,30 @@
       "use": "@vercel/static"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/",
-      "dest": "/body.html"
+      "source": "/",
+      "destination": "/body.html"
     },
     {
-      "src": "/login",
-      "dest": "/login.html"
+      "source": "/login",
+      "destination": "/login.html"
     },
     {
-      "src": "/signup",
-      "dest": "/signup.html"
+      "source": "/signup",
+      "destination": "/signup.html"
     },
     {
-      "src": "/images/(.*)",
-      "dest": "/images/$1"
+      "source": "/images/(.*)",
+      "destination": "/images/$1"
     },
     {
-      "src": "/style.css",
-      "dest": "/style.css"
+      "source": "/style.css",
+      "destination": "/style.css"
     },
     {
-      "src": "/script.js",
-      "dest": "/script.js"
+      "source": "/script.js",
+      "destination": "/script.js"
     }
   ],
   "cleanUrls": true,
