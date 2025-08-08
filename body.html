@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>CloudScrap</title>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="images/415cdd9f3fbb639c6abb100c8419eb83-removebg-preview.png" alt="CloudScrap Logo" style="width: 50px; height: 50px;">
+            CLOUDSCRAP
+        </div>
+        <button class="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav-menu">
+            <div class="referral">
+                <h1>EARN 30% RECURRING COMMISSION WITH</h1>
+                <div class="link">
+                    <p>your referral link</p>
+                </div>
+            </div>
+            <div class="auth-links">
+                <a href="login.html" class="auth-link">Sign In</a>
+                <a href="signup.html" class="auth-link">Sign Up</a>
+                <a href="#" class="logout" id="logout-link" style="display: none;">Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="bodiee">
+        <div class="scrape-container">
+            <div class="scrape" data-platform="results">
+                <img src="images/icons8-icons-94.png" alt="Results" height="30px" width="30px">
+                <h1>Scraping Results</h1>
+            </div>
+            <div class="scrape" data-platform="tiktok">
+                <img src="images/icons8-tiktok-48.png" alt="TikTok" height="30px" width="30px">
+                <h1>Scrape TikTok</h1>
+            </div>
+            <div class="scrape" data-platform="facebook">
+                <img src="images/icons8-facebook-logo-50 (1).png" alt="Facebook" height="30px" width="30px">
+                <h1>Scrape Facebook</h1>
+            </div>
+            <div class="scrape" data-platform="instagram">
+                <img src="images/icons8-instagram-logo-48.png" alt="Instagram" height="30px" width="30px">
+                <h1>Scrape Instagram</h1>
+            </div>
+            <div class="scrape" data-platform="reddit">
+                <img src="images/icons8-reddit-48.png" alt="Reddit" height="30px" width="30px">
+                <h1>Scrape Reddit</h1>
+            </div>
+            <div class="scrape" data-platform="linkedin">
+                <img src="images/icons8-linkedin-48.png" alt="LinkedIn" height="30px" width="30px">
+                <h1>Scrape LinkedIn</h1>
+            </div>
+            <div class="scrape" data-platform="tubif">
+                <img src="images/icons8-tubi-48.png" alt="Tubif" height="30px" width="30px">
+                <h1>Scrape Tubi</h1>
+            </div>
+        </div>
+
+        <div class="crape">
+            <div class="hea">
+                <p>Platforms</p>
+                <p>Search</p>
+                <p>Date</p>
+                <p>Result</p>
+                <p>Status</p>
+            </div>
+            <div class="table-content" id="scrape-table">
+                <!-- Dynamic content will be added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for displaying email spreadsheet -->
+    <div class="modal" id="email-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Email Results</h2>
+            <div class="spreadsheet-container">
+                <table id="email-table">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Platform</th>
+                            <th>Date Collected</th>
+                        </tr>
+                    </thead>
+                    <tbody id="email-table-body">
+                        <!-- Dynamic email data will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+            <button class="download-btn">Download as CSV</button>
+        </div>
+    </div>
+
+    <!-- Loading spinner -->
+    <div class="loading" id="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+        <p>Loading Reddit emails...</p>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

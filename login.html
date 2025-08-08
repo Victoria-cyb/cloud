@@ -1,0 +1,87 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Sign In - CloudScrap</title>
+</head>
+<body>
+    <section class="signup">
+        <div class="cloud">
+            <div class="heading">
+                <img src="images/415cdd9f3fbb639c6abb100c8419eb83-removebg-preview.png" alt="CloudScrap Logo" style="width: 50px; height: 50px;">
+                CLOUDSCRAP
+            </div> 
+            <div class="form-container">
+                <h2>Sign In</h2>
+                <button class="google-btn" onclick="handleGoogleSignIn()">
+                    <img src="https://www.google.com/favicon.ico" alt="Google Logo" style="width: 20px; height: 20px; margin-right: 10px;">
+                    Sign in with Google
+                </button>
+                <form id="login-form">
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                    <input type="password" id="signupPassword" placeholder="Password (min 10 chars)" required>
+                    <button type="submit" class="btn">Sign In</button>
+                </form>
+                <p class="auth-switch">Don't have an account? <a href="signup.html">Sign Up</a></p>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="images/laptop-removebg-preview.png" alt="Laptop" width="500px" height="500px" style="position: relative;">
+            <img src="images/909b8d429644e13a7ffbaae7962dbab0-removebg-preview.png" alt="Overlay" height="200px" width="200px" style="position: absolute; bottom: 200px; right: 0;">
+        </div>
+    </section>
+    <div id="result" class="result-message"></div>
+
+    <script src="./script.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Sign In - CloudScrap</title>
+</head>
+<body>
+    <section class="signup">
+        <div class="cloud">
+            <div class="heading">
+                <img src="images/415cdd9f3fbb639c6abb100c8419eb83-removebg-preview.png" alt="CloudScrap Logo" style="width: 50px; height: 50px;">
+                CLOUDSCRAP
+            </div> 
+            <div class="form-container">
+                <h2>Sign In</h2>
+                <div id="g_id_onload"
+                     data-client_id="656467747719-9auvi5djsu8kb7mi1j1cf0dttfaemq7g.apps.googleusercontent.com"
+                     data-callback="handleGoogleSignIn"
+                     data-auto_prompt="false">
+                </div>
+                <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline"></div>
+                <form id="login-form">
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                  <div class="password-container">
+                        <input type="password" id="signupPassword" placeholder="Password (min 10 chars)" required>
+                      <span class="toggle-password" onclick="togglePassword('signupPassword')">&#128065;</span>
+                    </div>
+                    <button type="submit" class="btn">Sign In</button>
+                </form>
+                <p class="auth-switch">Don't have an account? <a href="signup.html">Sign Up</a></p>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="images/laptop-removebg-preview.png" alt="Laptop" width="500px" height="500px" style="position: relative;">
+            <img src="images/909b8d429644e13a7ffbaae7962dbab0-removebg-preview.png" alt="Overlay" height="200px" width="200px" style="position: absolute; bottom: 200px; right: 0;">
+        </div>
+    </section>
+    <div id="result" class="result-message"></div>
+    <script src="./script.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</body>
+</html>
