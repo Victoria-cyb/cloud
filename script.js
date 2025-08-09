@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // GraphQL client setup
   const graphqlRequest = async (query, variables) => {
     console.log('Sending GraphQL request:', { query, variables });
-    const response = await fetch('http://localhost:4000/graphql', {
+    const response = await fetch('https://cloudscrap-back.vercel.app/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
