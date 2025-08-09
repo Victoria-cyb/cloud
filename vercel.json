@@ -31,7 +31,6 @@
       "source": "/signup",
       "destination": "/signup.html"
     }
-  ],
-  "cleanUrls": true,
-  "trailingSlash": false
+  ]
+ 
 }
