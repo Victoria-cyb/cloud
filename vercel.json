@@ -30,18 +30,6 @@
     {
       "source": "/signup",
       "destination": "/signup.html"
-    },
-    {
-      "source": "/images/(.*)",
-      "destination": "/images/$1"
-    },
-    {
-      "source": "/style.css",
-      "destination": "/style.css"
-    },
-    {
-      "source": "/script.js",
-      "destination": "/script.js"
     }
   ],
   "cleanUrls": true,
