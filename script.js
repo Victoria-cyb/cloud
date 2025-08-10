@@ -1,71 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
   // GraphQL client setup
-  // const graphqlRequest = async (query, variables) => {
-  //   console.log('Sending GraphQL request:', { query, variables });
-  //   const response = await fetch('https://cloudscrap-back.vercel.app/graphql', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'Authorization': `Bearer ${localStorage.getItem('token') || ''}`,
-  //     },
-  //     body: JSON.stringify({ query, variables }),
-  //   });
-  //   const { data, errors } = await response.json();
-  //   if (errors) {
-  //     console.error('GraphQL errors:', errors);
-  //     throw new Error(errors[0].message);
-  //   }
-  //   return data;
-  // };
-
-  async function graphqlRequest(query, variables = {}) {
-  const token = localStorage.getItem('token') || '';
-  
-  // Try possible GraphQL paths
-  const endpoints = [
-    'https://cloudscrap-back.vercel.app/graphql',
-    'https://cloudscrap-back.vercel.app/api/graphql'
-  ];
-
-  let lastError;
-  
-  for (const endpoint of endpoints) {
-    try {
-      console.log(`Sending GraphQL request to: ${endpoint}`);
-      
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': token ? `Bearer ${token}` : '',
-        },
-        body: JSON.stringify({ query, variables }),
-      });
-
-      // Detect non-JSON (like HTML error page)
-      const contentType = response.headers.get('content-type') || '';
-      if (!contentType.includes('application/json')) {
-        const text = await response.text();
-        throw new Error(`Non-JSON response from ${endpoint}:\n${text.slice(0, 200)}...`);
-      }
-
-      const json = await response.json();
-
-      if (json.errors) {
-        throw new Error(`GraphQL errors: ${JSON.stringify(json.errors)}`);
-      }
-
-      return json.data;
-
-    } catch (err) {
-      console.warn(`GraphQL request to ${endpoint} failed:`, err.message);
-      lastError = err;
+  const graphqlRequest = async (query, variables) => {
+    console.log('Sending GraphQL request:', { query, variables });
+    const response = await fetch('https://cloudscrap-back.vercel.app/graphql', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token') || ''}`,
+      },
+      body: JSON.stringify({ query, variables }),
+    });
+    const { data, errors } = await response.json();
+    if (errors) {
+      console.error('GraphQL errors:', errors);
+      throw new Error(errors[0].message);
     }
-  }
-
-  throw lastError || new Error('All GraphQL endpoints failed.');
-}
-
+    return data;
+  };
 
   // Hamburger menu functionality
   const hamburger = document.querySelector('.hamburger');
