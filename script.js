@@ -1,22 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
   // GraphQL client setup
-  const graphqlRequest = async (query, variables) => {
-    console.log('Sending GraphQL request:', { query, variables });
-    const response = await fetch('https://cloudscrap-back.vercel.app/graphql', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${localStorage.getItem('token') || ''}`,
-      },
-      body: JSON.stringify({ query, variables }),
-    });
-    const { data, errors } = await response.json();
-    if (errors) {
-      console.error('GraphQL errors:', errors);
-      throw new Error(errors[0].message);
-    }
-    return data;
-  };
+  const graphqlRequest = async function sendGraphQLRequest(query, variables = {}) {
+  const API_URL = window.location.hostname.includes('localhost') || window.location.hostname.includes('127.0.0.1')
+    ? 'http://localhost:4000/graphql'
+    : 'https://cloudscrap-back.vercel.app/graphql';
+
+  console.log("Sending GraphQL request:", { query, variables });
+
+  const res = await fetch(API_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query, variables })
+  });
+
+  if (!res.ok) {
+    throw new Error(`GraphQL request failed: ${res.status}`);
+  }
+
+  const data = await res.json();
+  return data;
+}
+
 
   // Hamburger menu functionality
   const hamburger = document.querySelector('.hamburger');
